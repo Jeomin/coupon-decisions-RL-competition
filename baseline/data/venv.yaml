@@ -1,0 +1,44 @@
+metadata:
+  graph:
+    action_1:
+    - state
+    action_2:
+    - state
+    - action_1
+    next_state:
+    - action_2
+    - state
+  columns:
+  - total_num:
+      dim: state
+      type: discrete
+      max: 199
+      min: 0
+      num: 200
+  - average_num:
+      dim: state
+      type: continuous
+  - average_fee:
+      dim: state
+      type: continuous
+  - day_deliver_coupon_num:
+      dim: action_1
+      type: discrete
+      max: 5
+      min: 0
+      num: 6
+  - coupon_discount:
+      dim: action_1
+      type: discrete
+      max: 0.95
+      min: 0.6
+      num: 8
+  - day_order_num:
+      dim: action_2
+      type: discrete
+      max: 99
+      min: 0
+      num: 100
+  - day_average_order_fee:
+      dim: action_2
+      type: continuous

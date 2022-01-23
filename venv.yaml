@@ -1,0 +1,63 @@
+metadata:
+  graph:
+    action_1:
+    - state
+    action_2:
+    - state
+    - action_1
+    next_state:
+    - action_1
+    - action_2
+    - state
+  columns:
+  - total_num:
+      dim: state
+      type: continuous
+      max: 1
+      min: 0
+  - average_num:
+      dim: state
+      type: continuous
+      max: 0.5
+      min: 0
+  - average_fee:
+      dim: state
+      type: continuous
+      max: 0.8
+      min: 0
+  - day_coupon_use:
+      dim: state
+      type: continuous
+      max: 1
+      min: 0
+  - average_used_discount:
+      dim: state
+      type: continuous
+      max: 0.95
+      min: 0.6
+  - day_deliver_coupon_num:
+      dim: action_1
+      type: discrete
+      max: 6
+      min: 0
+      num: 7
+  - coupon_discount:
+      dim: action_1
+      type: discrete
+      max: 0.95
+      min: 0.6
+      num: 8
+  - day_order_num:
+      dim: action_2
+      type: discrete
+      max: 5
+      min: 0
+      num: 6
+  - day_average_order_fee:
+      dim: action_2
+      type: continuous
+      max: 80
+      min: 0
+  expert_functions:
+    next_state:
+      node_function: funcs_decision_graph.get_next_state
